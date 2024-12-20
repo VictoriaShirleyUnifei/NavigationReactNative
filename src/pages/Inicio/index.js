@@ -6,7 +6,7 @@ export default function Inicio() {
   const navigation = useNavigation();
 
   const navegaSobre = () => {
-    navigation.navigate("Sobre", {nome: 'Victoria', email: 'victoria@gmail.com'});
+    navigation.navigate("Sobre");
   }
 
   return (
