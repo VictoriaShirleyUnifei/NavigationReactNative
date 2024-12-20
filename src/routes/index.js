@@ -1,55 +1,40 @@
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from '@expo/vector-icons';
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import StackRoutes from "./stackRoutes";
 import Sobre from "../pages/Sobre";
 import Contato from "../pages/Contato";
 
-const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function Routes() {
   return (
-      <Tab.Navigator
-        screenOptions={{
-          headerShown: false,
-          tabBarHideOnKeyboard: true,
-          tabBarShowLabel: false,
-          tabBarActiveTintColor: "#fff",
-          tabBarStyle:{
-            backgroundColor: "#202225",
-            borderTopWidth: 0
-          }
+     <Drawer.Navigator
+      screenOptions={{
+        headerShown: false,
+        drawerStyle:{
+          backgroundColor: "#d6d6d6"
+        },
+        drawerActiveBackgroundColor: '#383d8f',
+        drawerActiveTintColor: '#fff',
+       // drawerInactiveBackgroundColor: '#ccc',
+        drawerInactiveTintColor: '#000'
+      }}
+     >
+      <Drawer.Screen 
+        name="InicioStack"
+        component={StackRoutes}
+        options={{
+          title: 'Inicio'
         }}
-      >
-        <Tab.Screen 
-          name="InicioStack"
-          component={StackRoutes}
-          options={{
-            //tabBarLabel: 'Tela início'
-            tabBarIcon: ({color, size}) => {
-              return <Ionicons name="home" size={size} color={color}/>
-            }
-          }}
-        />
-         <Tab.Screen 
-          name="Sobre"
-          component={Sobre}
-          options={{
-            tabBarIcon: ({color, size}) => {
-              return <Ionicons name="document-outline" size={size} color={color}/>
-            }
-          }}
-        />
-         <Tab.Screen 
-          name="Contato"
-          component={Contato}
-          options={{
-            //headerShown: false,
-            tabBarIcon: ({color, size}) => {
-              return <Ionicons name="call-outline" size={size} color={color}/>
-            }
-          }}
-        />
-      </Tab.Navigator>
+      />
+      <Drawer.Screen 
+        name="Sobre"
+        component={Sobre}
+      />
+      <Drawer.Screen 
+        name="Contato"
+        component={Contato}
+      />
+     </Drawer.Navigator>
   );
 }
