@@ -5,8 +5,8 @@ import { useNavigation } from "@react-navigation/native";
 export default function Inicio() {
   const navigation = useNavigation();
 
-  const navegaSobre = () => {
-    navigation.navigate("Sobre");
+  const navegaDetalhes = () => {
+    navigation.navigate("Detalhes");
   }
 
   return (
@@ -14,8 +14,8 @@ export default function Inicio() {
       <Text>Tela de Início</Text>
       <Button
         style={styles.button}
-        title="Ir para Sobre"
-        onPress={navegaSobre}
+        title="Ir para Detalhes"
+        onPress={navegaDetalhes}
       />
     </View>
   );
