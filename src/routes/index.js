@@ -3,12 +3,14 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import StackRoutes from "./stackRoutes";
 import Sobre from "../pages/Sobre";
 import Contato from "../pages/Contato";
+import CustomDrawer from "../components/CustomDrawer";
 
 const Drawer = createDrawerNavigator();
 
 export default function Routes() {
   return (
      <Drawer.Navigator
+     drawerContent={CustomDrawer}
       screenOptions={{
         headerShown: false,
         drawerStyle:{
